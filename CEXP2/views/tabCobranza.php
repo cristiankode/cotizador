@@ -1,0 +1,3 @@
+<?php
+?>
+<p>Cobranza</p>

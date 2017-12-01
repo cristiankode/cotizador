@@ -1,0 +1,4 @@
+<?php
+?>
+<p>Efectivo</p>
+

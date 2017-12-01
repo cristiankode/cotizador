@@ -1,0 +1,135 @@
+/* 
+    Created on : 13-nov-2017, 11:55:55
+    Author     : Cristian Hurtado
+*/
+
+/*Headers PAneles*/
+
+.modal-header{
+    background:#85C1E9;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-border-radius: 10px 10px 0px 0px !important;
+    -moz-border-radius: 10px 10px 0px 0px !important;
+    border-radius: 10px 10px 0px 0px !important; 
+}
+
+.modal-content  {
+    
+    -webkit-border-radius: 10px 10px 10px 10px !important;
+    -moz-border-radius: 10px 10px 10px 10px !important;
+    border-radius: 10px 10px 10px 10px !important; 
+}
+
+div.panel-heading{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#tableExpedientes, #tablePasajeros{
+    font-size: 0.8em;
+}
+tableExpedientes.compact.dataTable.no-footer{
+    font-size: 1.0em;
+}
+
+tr{
+    cursor: pointer;
+}
+
+/****Propiedades JQuery selectMenu*******/
+label {
+      /*display: block;*/
+      /*margin: 30px 0 0 0;*/
+}
+    .overflow {
+      height: 200px;
+}
+    span#idEmpleados-button{
+        width: 250px;
+}    
+    
+    /*Input principal buscar por expediente*/
+    input#col1_filter{
+        color: #007fff;
+}  
+    
+    #rangoInicioFecha{
+        color:#007fff;
+        /*width: 193px;*/
+}
+    
+    #rangoFinalFecha{
+        color:#007fff;
+}
+    
+    #fondoCabecera{
+        background-color: #3c8dbc; 
+        padding-top: 7px;
+        /*border-radius: 10px 10px 10px 10px;*/
+}
+    
+    div.col-md-4{
+        width: 24%;
+}
+    
+    .labelColor{
+        color:#ffffff;
+}
+
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+}
+    
+input#expediente.form-control.input-sm{
+        width: 102px;
+}
+    
+A:link {
+    text-decoration:none;
+    color:#0000cc;
+} 
+A:visited {
+    text-decoration:none;
+    color:#ffcc33;
+} 
+A:active {
+    text-decoration:none;
+    color:#ff0000;
+} 
+A:hover {
+    text-decoration:underline;
+    color:#00FFA2;
+} 
+
+input[type="text"].format {
+    font-weight: bold;
+}
+
+iframe { 
+    width: 417px;
+    height: 319px;
+    
+}
+.docFrame{
+    position: relative;
+    padding-bottom: 85%;
+    overflow: hidden;
+}
+
+.docFrame iframe{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*.seccionToggle{
+    display: none;
+}*/
+
