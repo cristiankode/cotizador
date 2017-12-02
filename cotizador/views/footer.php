@@ -18,7 +18,7 @@
 <script src="./public/js/jquery.dataTables.min.js"></script>
 <!--<script src="./public/js/moment.js"></script>-->
 <!--<script src="./public/js/range_dates.js"></script>-->
-<script type="text/javascript" src="js/fileinput.min.js"></script>
+<script type="text/javascript" src="./public/js/fileinput.min.js"></script>
 <script src="./public/js/funciones.js"></script>
 
 </body>
