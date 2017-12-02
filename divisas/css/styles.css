@@ -1,0 +1,140 @@
+body{
+    font-size: 1.3em;
+}
+/*Label fecha*/
+#fecha{
+
+    padding-left: 15px;
+
+}
+#datepicker{
+    color:red;
+    height: 34px;
+    width: 162px;
+}
+#deFechaReporte{
+    color:red;
+    width: 146px;
+}
+
+#alFechaReporte{
+    color:red;
+    width: 146px;
+}
+
+div.row #divInputs input{
+    /*width: 73px;*/
+    color: blue;
+}
+
+#colmd2{
+
+    padding-right: 30px;
+    padding-left: 20px;
+
+}
+
+#p-Fecha{
+    color:black;
+}
+
+
+#tableDivisas{
+    font-size: 0.8em;
+}
+
+
+p{
+    font-size: 0.9em;
+    color:red;
+}
+
+.modal-header{
+    border: 1px solid #003eff;
+    background:#007fff; /*Color tabs*/
+    background:#3c8dbc; /*Color header*/
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-border-radius: 10px 10px 0px 0px !important;
+    -moz-border-radius: 10px 10px 0px 0px !important;
+    border-radius: 10px 10px 0px 0px !important; 
+}
+
+.modal-footer{
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+.modal-content  {
+    width: 452px;
+    -webkit-border-radius: 10px 10px 10px 10px !important;
+    -moz-border-radius: 10px 10px 10px 10px !important;
+    border-radius: 10px 10px 10px 10px !important; 
+}
+
+#contentReport{
+    width: 395px;
+}
+
+table.compact.dataTable.no-footer{
+    font-size: 0.8em;
+}
+
+label#fecha{
+    font-size: 12px;
+}
+
+label{
+    font-size: 10px
+}
+
+/*Tab External*/
+div.form-group label#nombre_externo{
+    font-size: 0.9em;
+}
+label#email_externo{
+    font-size: 0.9em;
+}
+input#externoNombre.form-control{
+    font-size: 0.9em;
+    color:black;
+}
+input#externoEmail.form-control{
+    font-size: 0.9em;
+    color: black;
+}
+
+/*TableAverage*/
+table#tableAverage th{
+    border: #3c8dbc;
+    background-color: #3c8dbc;
+    color: white;
+    text-align: center;
+}
+
+input{
+    width: 90px;
+}
+
+label{
+    width: 177px;
+}
+
+label#rangosFechas{
+    width: 50px;
+}
+
+.rangoPromedios{
+    width: 140px;
+}
+#btn-guardar{
+    height: 35px;
+    width: 162px;
+}
+
+label#rangosFechasPromedio{
+    width: 33px;
+    
+}
