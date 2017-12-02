@@ -1,0 +1,67 @@
+/*Headers PAneles*/
+
+.modal-header{
+    background:#85C1E9;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-border-radius: 10px 10px 0px 0px !important;
+    -moz-border-radius: 10px 10px 0px 0px !important;
+    border-radius: 10px 10px 0px 0px !important; 
+}
+
+.modal-content  {
+    
+    -webkit-border-radius: 10px 10px 10px 10px !important;
+    -moz-border-radius: 10px 10px 10px 10px !important;
+    border-radius: 10px 10px 10px 10px !important; 
+}
+
+div.panel-heading{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#tableExpedientes, #tablePasajeros{
+    font-size: 0.8em;
+}
+tableExpedientes.compact.dataTable.no-footer{
+    font-size: 1.0em;
+}
+
+tr{
+    cursor: pointer;
+}
+
+/*Estilos tfoot DataTables*/
+tfoot input {
+        width: 100%;
+        padding: 3px;
+        box-sizing: border-box;
+}
+
+/*Estilos Responsive iFrame*/
+iframe { 
+    width: 417px;
+    height: 319px;
+    
+}
+.docFrame{
+    position: relative;
+    padding-bottom: 85%;
+    overflow: hidden;
+}
+
+.docFrame iframe{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/***************Hasta aqui no borrar*************/
+/*.seccionToggle{
+    display: none;
+}*/
+
