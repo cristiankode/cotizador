@@ -143,13 +143,14 @@ var obtener_data_expediente = function (tbody, tableExpedientes) {
 
 var editarPasajeros = function () {
 
-    $('#tablePasajeros tbody').on('click', 'tr', function () {
+    $('#tablePasajeros tbody').on('click', 'tr', function (e) {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
             tablePasajeros.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         }
+
 
         idPasajero = $('td', this).eq(0).text();
         var c2 = $('td', this).eq(1).text();
@@ -158,7 +159,7 @@ var editarPasajeros = function () {
         var c5 = $('td', this).eq(4).text();
         var c6 = $('td', this).eq(5).text();
 
-        console.log(this);
+
 
         if ($('input[name=paxPrincipal]').attr('checked')) {
             console.log('is_checked');
@@ -213,7 +214,7 @@ $(function () {
                 $("#messageFiles").html(datos).fadeOut(5000);
 //                $('.seccionToggle').slideToggle();
                 $('#iframeid').attr('src', "../pasaportesFiles/" + idPasajero + ".pdf");
-//                 $('#iframeid').attr('src', "../visasFiles/" + idPasajero + ".pdf");
+                $('#iframeid').attr('src', "../visasFiles/" + idPasajero + ".pdf");
             }
         });
     });
@@ -223,10 +224,9 @@ $(":button").click(function (event) {
     event.preventDefault();
     let id = this.id;
     valInputs = $("form").serialize();
-    console.log(valInputs);
+//    console.log(valInputs);
     if (this.id === "btnAgregaPasajeros") {
-//        console.log(this.id);
-//        console.log(valInputs);
+        btnAgregaPasajeros = this.id;
         $.ajax({
             url: "../services/pasajerosService.php",
             type: "post",
@@ -240,7 +240,6 @@ $(":button").click(function (event) {
             },
             success: function (response) {
                 $("#mensajePaxAjax").html(response);
-                console.log(response);
 //                tablePasajeros.ajax.reload();
 //                location.reload("");
 //                window.close('../views/updateCupon.View.php');
@@ -249,6 +248,7 @@ $(":button").click(function (event) {
         });
     } else if (this.id === "btneditarPasajeros") {
         console.log(this.id);
+
         $.ajax({
             url: "../services/editPasajerosService.php",
             type: "post",
@@ -269,12 +269,85 @@ $(":button").click(function (event) {
 //                window.open('../index.php');
             }
         });
-    }else if( this.id ==="consultaPasaporte"){
+    } else if (this.id === "consultaPasaporte") {
         ibButtonPasaporte = this.id;
-         $('#iframeid').attr('src', "../pasaportesFiles/" + idPasajero + ".pdf");
-    }else if(this.id ==="consultaVisa"){
+        var parametros = {
+            "ibButtonPasaporte": ibButtonPasaporte,
+            "idPasajero": idPasajero
+        };
+        $.ajax({
+            type: "post",
+            url: "../services/pasajerosService.php",
+            data: parametros,
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $("#mensajeAjaxUploadPDF").html(response);
+            }
+        });
+    } else if (this.id === "consultaVisa") {
         ibButtonVisas = this.id;
-        console.log(ibButtonVisas);
-        $('#iframeid').attr('src', "../visasFiles/" + idPasajero + ".pdf");
+        var parametros = {
+            "ibButtonVisas": ibButtonVisas,
+            "idPasajero": idPasajero
+        };
+        $.ajax({
+            type: "post",
+            url: "../services/pasajerosService.php",
+            data: parametros,
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                $("#mensajeAjaxUploadPDF").html(response);
+            }
+        });
+    } else if (this.id === "btnAddDattosAssistCard") {
+
+        btnAddDattosAssistCard = this.id;
+
+        if (idPasajero === '') {
+            alert("ERROR: Para Agregar Datos Adicionales es necesario seleccionar un pasajero desde.\n Intenta nuevamente por favor.");
+        } else {
+            var parametros = {
+                "btnAddDattosAssistCard": btnAddDattosAssistCard,
+                "idPasajero": idPasajero
+            };
+            console.log(parametros);
+            $.ajax({
+                type: "post",
+                url: "../services/pasajerosService.php",
+                data: parametros,
+                beforeSend: function () {
+
+                },
+                success: function (response) {
+                    
+                    var pax= $.parseJSON(response);
+                    $("#addDattosAssistCard").modal("show");
+                    
+                    $( "#idPaxAssitCard" ).val(pax[0].idpax);
+                        var nombre = pax[0].apellidop + ' ' + pax[0].apellidom + ' ' + pax[0].nombre + ' ' + pax[0].nombre2;
+                    $( "#nombrePaxAssitCard" ).val(nombre);
+                    $( "#generoPaxAssist").val(pax[0].genero).attr("selected", "selected");
+                    $( "#fechNacPax" ).val(pax[0].fechanac);
+                    $( "#NoPasaportePaxAssitCard" ).val(pax[0].pasaporte);
+                    $( "#nacionalidadPaxAssist").val(pax[0].nacionalidad);
+                    $( "#passportVencimientoPaxAssist").val(pax[0].vencimientopas);
+                }
+            });
+        }
+
+
+
+
+    } else if (this.id === "btnGuardarDatosAssistCard") {
+        btnGuardarDatosAssistCard = this.id;
+        console.log(btnGuardarDatosAssistCard);
+        console.log(valInputs);
     }
 });
+
+
+

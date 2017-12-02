@@ -296,7 +296,7 @@ if (isset($_GET['idexp'])) {
                                 <br/>
                                 <div class="row">
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-default">Carga Datos Adiciones Assist Card</button>
+                                        <button type="button" class="btn btn-default" id="btnAddDattosAssistCard"><img src="../public/img/insurance.png">Carga Datos Adiciones Assist Card</button>
                                         <button type="button" class="btn btn-default">Solicitud de Assist Card</button>
                                         <button type="button" class="btn btn-default">Pax de Bloq (EU)</button>
                                         <button type="button" class="btn btn-default">Exportar a Excel</button>
@@ -417,23 +417,13 @@ if (isset($_GET['idexp'])) {
                                         <div class="panel panel-info seccionToggle">
                                             <!-- Default panel contents -->
                                             <div class="panel-heading">Documentos Pasajeros</div>
-                                            <div class="panel-body docFrame">
+                                                <div class="panel-body docFrame" id="mensajeAjaxUploadPDF">
                                                 <?php
-//                                                $ext = ".pdf";
-//                                                $archivo = $mc_id . $ext;
-//                                                $filePath = "./archivospdf/$archivo";
-//                                                if (file_exists($filePath)) {
-//                                                    $archivo_buscar = $filePath;
-//                                                } else {
                                                     $archivo_buscar = "http://lax.megatravel.com.mx/expo/img/logo_mt.png";
-                                                //                    echo '  <div class="alert alert-danger" role="alert">
-                                                //                            <strong>No tenemos Archivo de Cedula Fiscal Registrada.<br>
-                                                //                            Agregalo desde el boton Cargar Cedula Fiscal<br></strong> </div>';  
-//                                                }
                                                 echo "<iframe src='$archivo_buscar' id='iframeid' name='iframe' frameborder='0' embedded='true'>"
                                                  . "</iframe>";
                                                 ?>
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>
@@ -585,10 +575,77 @@ if (isset($_GET['idexp'])) {
                             </div>
                         </div>
                     </form>
-
-
-
-
+                    
+                    <!--modal Carga Datos AssistCard-->
+                    <form id="formDattosAssistCard" class=""  method="post">
+                    <div class="modal fade" id="addDattosAssistCard" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">Datos Adicionales Pasajeros</h4>
+                            </div>
+                            <div class="modal-body">
+                              
+                                <div class="row">
+                                    <div class="col-md-1"></div>
+                                    <div class="col-md-10">
+                                        <!--<label for="idPax">IdPax</label>-->
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="">IdPax:</span>
+                                            <input type="text" class="form-control input-sm" name="idPaxAssitCard" id="idPaxAssitCard" readonly />
+                                        </div>
+                                        <br/>
+                                        <div class="input-group">
+                                                <span class="input-group-addon" id="">Pasajero:</span>
+                                                <input type="text" class="form-control input-sm" name="nombrePaxAssitCard" id="nombrePaxAssitCard" readonly />
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="generoPaxAssist">Genero</label>
+                                            <select class="form-control input-sm" id="generoPaxAssist" name="generoPaxAssist">
+                                                <option>Selecciona Genero</option>
+                                                <option value="MASCULINO">MASCULINO</option>
+                                                <option value="FEMENINO">FEMENINO</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="fechNacPax">Fecha de Nacimiento</label>
+                                            <input type="date" class="form-control input-sm" id="fechNacPax" name="fechNacPax"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="NoPasaporte">No de Pasaporte</label>
+                                            <input type="text" class="form-control input-sm" id="NoPasaportePaxAssitCard" name="NoPasaportePaxAssitCard"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nacionalidadPax">Nacionalidad</label>
+                                            <input type="text" class="form-control input-sm" id="nacionalidadPaxAssist" name="nacionalidadPaxAssist"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vencimientoPax">Fecha de Vencimiento Pasaporte</label>
+                                            <input type="date" class="form-control input-sm" id="passportVencimientoPaxAssist" name="passportVencimientoPaxAssist"/>
+                                        </div>
+                                    </div>
+                                     <div class="col-md-1"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <div class="col-md-12">
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-primary btn-block" id="btnGuardarDatosAssistCard">
+                                            <!--<img src="../public/img/save-folder.png">-->
+                                            Guardar
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    </form>
+                    
                 </div><!--fin container-->    
 
 
