@@ -3,7 +3,6 @@ include ($_SERVER["DOCUMENT_ROOT"] . '/php/session2.php');
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-$idDepto = '4';
 ?>
 <!DOCTYPE html>
 <html>

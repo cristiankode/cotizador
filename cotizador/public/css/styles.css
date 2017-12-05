@@ -60,8 +60,28 @@ iframe {
     width: 100%;
     height: 100%;
 }
+
+textarea{
+   height:100%;
+}
 /***************Hasta aqui no borrar*************/
 /*.seccionToggle{
     display: none;
 }*/
+
+#colorEtiquetaDatosCliente{
+    background-color: #3c8dbc;
+    color:#fff;
+    line-height: 2;
+}
+input[type="spinner"]{
+    color: #3c8dbc;
+    font-weight: bold;
+    
+}
+
+.overflow {
+      height: 150px;
+    }
+
 
