@@ -52,7 +52,7 @@ include ("./clases/Fecha.php");
                             <div class="col-sm-2">
                                 <input type="spinner" class="form-control input-sm" id="inputCombinacion1Adultos" name="inputCombinacion1Adultos" value="0" min="0" max="99" />
                             </div>
-                            <label for="inputCombinacionJunior" class="col-sm-2 control-label">Junior</label>
+                        <label for="inputCombinacionJunior" class="col-sm-2 control-label">Junior</label>
                             <div class="col-sm-2">
                                 <input type="spinner" class="form-control input-sm" id="inputCombinacion1Junior" name="inputCombinacion1Junior" value="0" min="0" max="99" />
                             </div>
@@ -82,7 +82,7 @@ include ("./clases/Fecha.php");
                             <label for="selectNHabitaci&oacute;n" class="col-sm-4 control-label">No. de Habitaciones</label>
                             <div class="col-sm-12">
                                 <select class="form-control input-sm col-sm-12" id="selectNHabitaciones" name="selectNHabitaciones" disabled>
-                                    <option>Habitaciones...</option>
+                                    <option value="0">Habitaciones...</option>
                                     <option value="1">1 Habitaci&oacute;n</option>
                                     <option value="2">2 Habitaciones</option>
                                     <option value="3">3 Habitaciones</option>
@@ -95,8 +95,8 @@ include ("./clases/Fecha.php");
                             <label for="selectTHabitacion" class="col-sm-4 control-label">Tipo de Habitaci&oacute;n</label>
                             <div class="col-sm-12">
                                 <select class="form-control input-sm" id="selectTipoHabitacion" name="selectTipoHabitacion" disabled>
-                                    <option>Tipo Habitaci&oacute;n...</option>
-                                    <option value="sencilla">Sencilla</option>
+                                    <option value="0">Tipo Habitaci&oacute;n...</option>
+                                    <option value="1">Sencilla</option>
                                     <option value="Sencilla C/1 Menor">Sencilla C/1 Menor</option>
                                     <option value="Sencilla C/2 Menores">Sencilla C/2 Menores</option>
                                     <option value="Sencilla C/3 Menores">Sencilla C/3 Menores</option>
@@ -134,7 +134,7 @@ include ("./clases/Fecha.php");
                             <div class="col-sm-12">
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-8">
-                                    <button type="button" class="btn btn-primary btn-block" id="btnGrabar">
+                                    <button type="button" class="btn btn-primary btn-block" id="btnGrabar" disabled>
                                         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                                         Grabar</button>
                                 </div>
@@ -159,6 +159,7 @@ include ("./clases/Fecha.php");
                                         <th>Menor</th>
                                     </tr>
                                 </thead>
+                                <tbody id="addFila"></tbody>
                             </table>
                         </div>
                     </div>
