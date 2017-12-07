@@ -49,7 +49,7 @@ class Model_divisas extends Model {
 
     public function readAllDivisas() {
         $sql = '';
-        $sql .= "SELECT * FROM camdivis";
+        $sql .= "SELECT * FROM camdivis ORDER BY fecha DESC";
 //        $sql .= " ORDER BY cid_cliente ASC";
         $this->query = $sql;
 
@@ -168,29 +168,6 @@ class Model_divisas extends Model {
         return $data;
     }
     
-//    public function findCurrencyAverage($dateOne = '', $dateTwo = '') {
-//        $sql = '';
-//        $sql .= "SELECT fecha,m1,m2,m3,m4,m5,m6,m7,m8"
-//                . " FROM camdivis WHERE fecha BETWEEN '".$dateOne."' AND '".$dateTwo."'"
-//                . " AND WEEKDAY(fecha) NOT LIKE 5 AND WEEKDAY(fecha) NOT LIKE 6"
-//                . " ORDER BY fecha DESC";
-//        $this->query = $sql;
-//        
-//          $this->get_query();
-//        
-//        $data = [];
-//        
-//        foreach ($this->rows as $key => $value) {
-//            array_push($data, $value);
-//        }
-//        
-//        return $data;
-//    }
-    
-    
-    
-    
-
     public function findCurrencyAverage($dateOne = '', $dateTwo = '') {
         $sql = '';
         $sql .= "SELECT AVG(m1) AS M1, AVG(m2) AS M2, AVG(m3) AS M3,"
@@ -201,6 +178,28 @@ class Model_divisas extends Model {
         $this->query = $sql;
         
           $this->get_query();
+        
+        $data = [];
+        
+        foreach ($this->rows as $key => $value) {
+            array_push($data, $value);
+        }
+        
+        return $data;
+    }
+
+    public function geAllContactInternos() {
+        
+        
+    }
+
+    public function getAllContactExternos() {
+        
+        $sql = 'SELECT * FROM contacext';
+        
+        $this->query = $sql;
+        
+        $this->get_query();
         
         $data = [];
         

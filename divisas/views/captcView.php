@@ -12,7 +12,7 @@ include ('../clases/Fecha.class.php');
                     </div>
                 </div>
                 <div class="row">
-                    <input type="date" name="fecha" id="datepicker" class="btn-block" value="<?php Fecha::getFechaEnCurso();?>" required />
+                    <input type="date" name="fecha" id="datepicker" class="form-control btn-block" value="<?php Fecha::getFechaEnCurso();?>" required />
                 </div>
                 <br/>
                 <div class="row text-left">

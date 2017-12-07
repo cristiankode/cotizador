@@ -19,11 +19,11 @@ if (isset($externoNom)) {
             $getStatusExternal = $statusExternal->findEmailExternal($valid['email']);
             if (count($getStatusExternal) === 1) {
                 $statusUpdateExternal = $statusExternal->updateContactExternos($valid);
-                echo '<script language="javascript">alert("ERROR: Excelente Trabajo!!. Contacto actualizado.");</script>';
+                echo '<script language="javascript">alert("Excelente Trabajo!!. Contacto actualizado.");</script>';
                 unset($getStatusExternal);
             } else {
                 $statusCreateExternal = $statusExternal->createContactExternos($valid);
-                echo '<script language="javascript">alert("ERROR: Excelente Trabajo!!. Nuevo Contacto Agregado.");</script>';
+                echo '<script language="javascript">alert("Excelente Trabajo!!. Nuevo Contacto Agregado.");</script>';
                 unset($getStatusExternal);
             }
         } else {

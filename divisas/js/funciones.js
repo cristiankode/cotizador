@@ -1,10 +1,18 @@
 var tableDiv;
 var tableExternal;
+var tableContactExternos;
+var tableContactInternos;
 $(document).ready(function () {
-
+    
+    listarContactosInternos();
+    listarContactosExternos();
     tableDiv = $("#tableDivisas").DataTable({
         "destroy": true,
-        "ajax": "includes/getTCDivisas.php",
+        "ajax": {
+            "method": "POST",
+            "url": "includes/getTCDivisas.php"
+        },
+//        "ajax": "includes/getTCDivisas.php",
         "async": true,
         "deferRender": true,
 //        "serverSide": false,
@@ -23,7 +31,7 @@ $(document).ready(function () {
         "searching": false,
         "lengthMenu": [[10, 10], [10]],
         "paging": true,
-        "ordering": true,
+        "ordering": false,
         "info": false,
 
         "order": [[0, 'desc']],
@@ -48,7 +56,11 @@ $(document).ready(function () {
 
     tableExternal = $("#externosContact").DataTable({
         "destroy": true,
-        "ajax": "includes/getExternos.php",
+        "ajax": {
+            "method": "POST",
+            "url": "includes/getExternos.php"
+        },
+//        "ajax": "includes/getExternos.php",
         "async": true,
         "deferRender": true,
         "columns": [
@@ -59,7 +71,7 @@ $(document).ready(function () {
         "searching": true,
         "lengthMenu": [[8, 8], [8]],
 //        "paging": true,
-        "ordering": true,
+        "ordering": false,
         "info": false,
 
         "order": [[0, 'asc']],
@@ -244,3 +256,50 @@ $("#btn-crearExternos").click(function (e) {
         }
     });
 });
+
+var listarContactosInternos = function(){
+     tableContactInternos = $("#tableContactInternos").DataTable({
+          "destroy": true,
+//        "scrollY": "100px",
+        "scrollCollapse": true,
+        "paging": false,
+        "ordering": false,
+        "searching": false,
+        "info": false,
+        "language": {
+            "zeroRecords": "Sin Registros actualizados."
+        }
+    });
+};
+
+var listarContactosExternos = function(){
+    tableContactExternos = $("#tableContactExternos").DataTable({
+          "ajax": {
+//            "method": "POST",
+            'url': 'service/getAllContactInternosService.php'
+        },
+        "scrollY": "200px",
+        "scrollCollapse": true,
+        'columnDefs': [{
+         'targets': 0,
+         'searchable': false,
+         'orderable': false,
+         'className': 'dt-body-center',
+         'render': function (data, type, full, meta){
+             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+         },
+        columns:[{
+                "data": "nombre"
+        }]
+      }],
+         "destroy": true,
+        "paging": false,
+        "ordering": false,
+        "searching": false,
+        "info": false,
+        "language": {
+            "zeroRecords": "Sin Registros actualizados."
+        }
+    });
+    
+};
