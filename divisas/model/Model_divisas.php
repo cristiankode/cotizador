@@ -188,14 +188,12 @@ class Model_divisas extends Model {
         return $data;
     }
 
-    public function geAllContactInternos() {
+    public function getAllContactInternos() {
         
-        
-    }
-
-    public function getAllContactExternos() {
-        
-        $sql = 'SELECT * FROM contacext';
+        $sql = "SELECT CONCAT(cnombre, ' ', capellidom, ' ', capellidop) as nombre,
+		email
+            FROM templeados
+        WHERE bactivo = 1";
         
         $this->query = $sql;
         
@@ -208,6 +206,7 @@ class Model_divisas extends Model {
         }
         
         return $data;
+        
     }
 
 }

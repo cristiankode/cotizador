@@ -2,8 +2,9 @@ var tableDiv;
 var tableExternal;
 var tableContactExternos;
 var tableContactInternos;
+var rowMail;
 $(document).ready(function () {
-    
+
     listarContactosInternos();
     listarContactosExternos();
     tableDiv = $("#tableDivisas").DataTable({
@@ -226,7 +227,7 @@ $(":button").click(function (event) {
                 $("#messageResponse").html(response);
             }
         });
-    }else if(this.id === "btn-report"){
+    } else if (this.id === "btn-report") {
         console.log("Abre modal");
 //        $( "#exportarExcel").modal('show');
     }
@@ -257,49 +258,137 @@ $("#btn-crearExternos").click(function (e) {
     });
 });
 
-var listarContactosInternos = function(){
-     tableContactInternos = $("#tableContactInternos").DataTable({
-          "destroy": true,
-//        "scrollY": "100px",
-        "scrollCollapse": true,
+var listarContactosInternos = function () {
+
+    tableContactInternos = $("#tableContactInternos").DataTable({
+        "destroy": true,
+        "ajax": {
+            "method": "POST",
+            "url": "service/getAllContactInternosService.php"
+        },
+        "deferRender": true,
+        'columnDefs': [
+            {
+                'targets': 0,
+                'searchable': false,
+                'orderable': false,
+                'sorting': true,
+//                'className': 'dt-body-right',
+                'render': function (data, type, full, meta) {
+                    return '<input type="checkbox" name="id[]" class="dt-checkboxes" />';
+                },
+
+                'checkboxes': {
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                }
+
+            },
+            {
+                'targets': 1,
+                'data': "nombre"
+            },
+            {
+                'targets': 2,
+                'data': "email"
+            }
+        ],
+        "scrollY": "200px",
+        "scrollCollapse": false,
         "paging": false,
         "ordering": false,
         "searching": false,
         "info": false,
+        "serverSide": true,
         "language": {
             "zeroRecords": "Sin Registros actualizados."
         }
     });
 };
 
-var listarContactosExternos = function(){
+var listarContactosExternos = function () {
+
     tableContactExternos = $("#tableContactExternos").DataTable({
-          "ajax": {
-//            "method": "POST",
-            'url': 'service/getAllContactInternosService.php'
+        "destroy": true,
+        "ajax": {
+            "method": "POST",
+            "url": "includes/getExternos.php"
         },
+        "deferRender": true,
+        'columnDefs': [
+            {
+                'targets': 0,
+                'searchable': false,
+                'orderable': false,
+                'sorting': true,
+//                'className': 'dt-body-right',
+                'render': function (data, type, full, meta) {
+                    return '<input type="checkbox" name="id[]" class="dt-checkboxes" />';
+                    //return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
+                },
+
+                'checkboxes': {
+                    'selectRow': true,
+                    'selectAllRender': '<div class="checkbox"><input type="checkbox" class="dt-checkboxes"><label></label></div>'
+                }
+
+            },
+            {
+                'targets': 1,
+                'data': "nombre"
+            },
+            {
+                'targets': 2,
+                'data': "email"
+            }
+        ],
         "scrollY": "200px",
         "scrollCollapse": true,
-        'columnDefs': [{
-         'targets': 0,
-         'searchable': false,
-         'orderable': false,
-         'className': 'dt-body-center',
-         'render': function (data, type, full, meta){
-             return '<input type="checkbox" name="id[]" value="' + $('<div/>').text(data).html() + '">';
-         },
-        columns:[{
-                "data": "nombre"
-        }]
-      }],
-         "destroy": true,
         "paging": false,
         "ordering": false,
         "searching": false,
         "info": false,
+        "serverSide": true,
         "language": {
             "zeroRecords": "Sin Registros actualizados."
         }
     });
-    
 };
+
+$("#example-select-all").on('click', function () {
+    var rows = tableContactExternos.rows({'search': 'applied'}).nodes();
+    // Check/uncheck checkboxes for all rows in the table
+    $('input[type="checkbox"]', rows).prop('checked', this.checked);
+});
+
+$("#example-select-allInternos").on('click', function () {
+    var rows = tableContactInternos.rows({'search': 'applied'}).nodes();
+    // Check/uncheck checkboxes for all rows in the table
+    $('input[type="checkbox"]', rows).prop('checked', this.checked);
+});
+
+$("#btnEnviarMail").click(function () {
+    
+    var mails = [];
+    $("input[type=checkbox]:checked").each(function () {
+        mails.push(($(this).parent().parent().find('td').eq(2).html()));
+        
+    });
+    var radios = $("input[name='inlineRadioOptions']:checked").val();
+    parametros = {
+        "mails": mails,
+        "optionRadio": radios 
+    };
+    $.ajax({
+        type: "post",
+        url: "service/sendMailDivisas.php",
+        data: parametros,
+        beforeSend: function(){
+            
+        },
+        success: function(response){
+            console.log(response);
+        }
+    });
+    
+});

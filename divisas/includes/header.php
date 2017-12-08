@@ -6,9 +6,9 @@ ini_set('display_errors', '1');
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Cache-Control" content="no-cache" />
+<!--        <meta http-equiv="Cache-Control" content="no-cache" />
         <meta http-equiv="Pragma" content="no-cache" />
-        <meta http-equiv="Expires" content="0" />
+        <meta http-equiv="Expires" content="0" />-->
         <?php include ($_SERVER["DOCUMENT_ROOT"] . '/php/head_lte.php');?>
         <link rel="stylesheet" type="text/css" href="css/styles.css"/>
         <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css"/>

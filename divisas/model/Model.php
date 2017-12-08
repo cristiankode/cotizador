@@ -37,9 +37,8 @@ abstract class Model {
     
     abstract protected function findCurrencyAverage();
     
-    abstract protected function geAllContactInternos();
+    abstract protected function getAllContactInternos();
     
-    abstract protected function getAllContactExternos();
 
 //    Metodo privado para conectarse a la base de datos
     private function db_open() {
