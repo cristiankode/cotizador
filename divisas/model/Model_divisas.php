@@ -193,7 +193,7 @@ class Model_divisas extends Model {
         $sql = "SELECT CONCAT(cnombre, ' ', capellidom, ' ', capellidop) as nombre,
 		email
             FROM templeados
-        WHERE bactivo = 1";
+        WHERE baja NOT LIKE 'S'";
         
         $this->query = $sql;
         
