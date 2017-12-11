@@ -379,6 +379,7 @@ $("#btnEnviarMail").click(function () {
         "mails": mails,
         "optionRadio": radios 
     };
+    console.log(parametros);
     $.ajax({
         type: "post",
         url: "service/sendMailDivisas.php",
