@@ -363,7 +363,7 @@ $("#example-select-all").on('click', function () {
 
 $("#example-select-allInternos").on('click', function () {
     var rows = tableContactInternos.rows({'search': 'applied'}).nodes();
-    // Check/uncheck checkboxes for all rows in the table
+    // Check/uncheck checkboxes para todas las filas en la tabla
     $('input[type="checkbox"]', rows).prop('checked', this.checked);
 });
 
@@ -375,6 +375,7 @@ $("#btnEnviarMail").click(function () {
         
     });
     var radios = $("input[name='inlineRadioOptions']:checked").val();
+    
     parametros = {
         "mails": mails,
         "optionRadio": radios 
