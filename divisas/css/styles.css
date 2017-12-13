@@ -1,6 +1,11 @@
 body{
     font-size: 1.3em;
 }
+
+.panel-heading{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 /*Label fecha*/
 #fecha{
 

@@ -6,7 +6,7 @@ function correo($destino, $asunto, $mensaje){
 				<td colspan='3' style='color:#910000' >Por favor, <br>
 					NO responda a este mensaje,	<br>
 					es un envío automático. <br><br>
-				</td>
+				</td> 
 			</tr>
 		</table>";
 	require ($_SERVER["DOCUMENT_ROOT"].'/php/PHPMailerAutoload.php');
@@ -106,9 +106,9 @@ function correoBCC($destino, $bcc, $asunto, $mensaje){
 
 function correoBCC_sa($destino, $bcc, $asunto, $mensaje, $mailsalida, $titulo){
 	$mensaje .= "<br><br><br>
-		<table width='90%' border='0' cellspacing='0' cellpadding='0'>
+		<table width='100%' border='0' cellspacing='0' cellpadding='0'>
 			<tr>
-				<td colspan='3' style='color:#910000' >Por favor, <br>
+				<td colspan='3' style='font-size:10px;color:#eaeaea' >Por favor, <br>
 					NO responda a este mensaje,	<br>
 					es un envío automático. <br><br>
 				</td>

@@ -380,7 +380,6 @@ $("#btnEnviarMail").click(function () {
         "mails": mails,
         "optionRadio": radios 
     };
-    console.log(parametros);
     $.ajax({
         type: "post",
         url: "service/sendMailDivisas.php",
@@ -390,6 +389,8 @@ $("#btnEnviarMail").click(function () {
         },
         success: function(response){
             console.log(response);
+            tableContactInternos.ajax.reload();
+            tableContactExternos.ajax.reload();
         }
     });
     
