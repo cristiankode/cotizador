@@ -12,7 +12,7 @@ include ('../clases/Fecha.class.php');
                     </div>
                 </div>
                 <div class="row">
-                    <input type="date" name="fecha" id="datepicker" class="form-control btn-block" value="<?php Fecha::getFechaEnCurso();?>" required />
+                    <input type="date" name="fecha" id="datepicker" class="form-control btn-block" value="<?php Fecha::getFechaEnCurso(); ?>" required />
                 </div>
                 <br/>
                 <div class="row text-left">
@@ -46,38 +46,43 @@ include ('../clases/Fecha.class.php');
                 <div class="row" id="btnExportReport">
                     <div class="col-md-4">
                         <button type="button" class="btn btn-primary btn-block" id="btn-report" data-toggle="modal" data-target="#exportarExcel">
-                            <span class="glyphicon glyphicon-list-alt"></span>&nbsp;Exportar Reporte(Excel)
+                            <span class="glyphicon glyphicon-list-alt"></span>Exportar Reporte(Excel)
                         </button>    
                     </div>
-                </div>
-                <br/>
-                <div class="row panel-body table-responsive">
-                    <table class="compact cell-border" id="tableDivisas">
-                        <thead>
-                            <tr>
-                                <th>FECHA</th>
-                                <th>USD/MXN</th>
-                                <th>USD/EUROS</th>
-                                <th>EURO/USD</th>
-                                <th>YUAN/UDS</th>
-                                <th>AUD/USD</th>
-                                <th>CAD/USD</th>
-                                <th>GBP/USD</th>
-                                <th>USD/MXN****</th>
-                            </tr>
-                        </thead>
-                    </table> 
+                    <div class="col-md-8">
+                        <p class="text-left" id="mensajeDivisas">
+                            <strong>
+                                No es posible modificar fechas de d&iacute;as anteriores.
+                                <br/>
+                                Si de desea modificar tipo de cambio del diario oficial realizar un ticket de soporte t&eacute;cnico.
+                                <br/>
+                                Para Modificar Divisas del d&iacute;a en curso dar DobleClick en Fecha.
+                            </strong>
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-2">
-                </div>
-                <div class="col-md-6 text-left">
-                    <p><strong>Para Modificar Divisas dar DobleClick en Fecha.</strong></p></div>
-                <div class="col-md-4"></div>
+            <br/>
+            <div class="row panel-body table-responsive">
+                <table class="compact cell-border" id="tableDivisas">
+                    <thead>
+                        <tr>
+                            <th>FECHA</th>
+                            <th>USD/MXN</th>
+                            <th>USD/EUROS</th>
+                            <th>EURO/USD</th>
+                            <th>YUAN/UDS</th>
+                            <th>AUD/USD</th>
+                            <th>CAD/USD</th>
+                            <th>GBP/USD</th>
+                            <th>USD/MXN****</th>
+                        </tr>
+                    </thead>
+                </table> 
             </div>
         </form>
     </div>
+</div>
 </div>
 
 

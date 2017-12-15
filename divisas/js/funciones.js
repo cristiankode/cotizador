@@ -155,8 +155,14 @@ $(document).ready(function () {
 
 });//End document Ready
 
-//$("button").button();
+
 var tabs = $("#tabs").tabs();
+
+ $("#mensajeDivisas").effect({
+        effect: "pulsate",
+        pieces: 4,
+        duration: 30000
+    });
 
 /*
  * btn.Controller
@@ -385,10 +391,15 @@ $("#btnEnviarMail").click(function () {
         url: "service/sendMailDivisas.php",
         data: parametros,
         beforeSend: function(){
-            
+             $( "#mensajeCorreos").empty();
         },
         success: function(response){
-            console.log(response);
+            
+            if(response === 'correoSuccess'){
+                $( "#mensajeCorreos" ).html('<div class="alert alert-success" role="alert"><strong>Excelente Trabajo!</strong>Se han enviado los correos exitosamente.</div>').slideDown( 500 ).delay( 800 ).slideUp( 3000 );
+            }else{
+                $( "#mensajeCorreos" ).html('<div class="alert alert-danger" role="alert"><strong>Error!</strong>Para enviar los correos correctamente es necesario seleccionar los destinatarios. Intenta Nueva Mente Por favor.</div>');
+            }
             tableContactInternos.ajax.reload();
             tableContactExternos.ajax.reload();
         }

@@ -1,5 +1,6 @@
 <?php ?>
 <div class="container">
+     <div id="mensajeCorreos"></div>
     <div class="col-md-12">
         <div class="col-md-6">
             <!--panel contactos Internos-->
@@ -16,14 +17,6 @@
                         </thead>
                     </table>
                 </div>
-                <!--                <div class="panel-footer">
-                                    <button type="button" id="marcaCheckInternos" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>&nbsp;Marca Todo
-                                    </button>
-                                    <button type="button" id="desmarcaCheckInternos" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>&nbsp;Desmarca Todo
-                                    </button>
-                                </div>-->
             </div>
         </div>    
         <div class="col-md-6">
@@ -41,14 +34,6 @@
                         </thead>
                     </table>
                 </div>
-                <!--                <div class="panel-footer">
-                                    <button type="button" id="btn-marcaCheckExternos" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span>&nbsp;Marca Todo
-                                    </button>
-                                    <button type="button" id="desmarcaCheckExternos" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>&nbsp;Desmarca Todo
-                                    </button>
-                                </div>-->
             </div>
         </div>
         <div class="col-md-12">
@@ -56,13 +41,26 @@
             <div class="col-md-6">
 
                 <div class="row">
-                    <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> <strong>Tipo de Cambio USD</strong>
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 
-                        <strong>Todas las Divisas</strong>
-                    </label>
+                    <div class="btn-group" data-toggle="buttons">
+
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" autocomplete="off" value="option1" checked>Tipo de Cambio USD
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 
+                            Todas las Divisas
+                        </label>
+
+                    </div>
+
+
+                    <!--                    <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> <strong>Tipo de Cambio USD</strong>
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 
+                                            <strong>Todas las Divisas</strong>
+                                        </label>-->
                 </div>
                 <hr>
                 <div class="row">
