@@ -83,5 +83,29 @@ input[type="spinner"]{
 .overflow {
       height: 150px;
     }
+    
+    #muestraNpersonas{
+        display:none;
+    }
+    
+    #hab1Personas{
+         display:none; 
+    }
+    #hab2Personas{
+          display:none;
+    }
+    #hab3Personas{
+          display:none;
+    }
+    #hab4Personas{
+          display:none;
+    }
+    #hab5Personas{
+          display:none;
+    }
+    
+    #btnBuscar{
+        display: none;
+    }
 
 

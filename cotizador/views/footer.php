@@ -17,9 +17,24 @@
 <script src="./public/js/jquery-ui.js"></script>
 <script src="./public/js/jquery.dataTables.min.js"></script>
 <!--<script src="./public/js/moment.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <!--<script src="./public/js/range_dates.js"></script>-->
 <script type="text/javascript" src="./public/js/fileinput.min.js"></script>
+<script src='https://<?php echo $_SERVER['SERVER_NAME']?>/plugins/datepicker/bootstrap-datepicker.js'></script>
+<script src='https://<?php echo $_SERVER['SERVER_NAME']?>/plugins/datepicker/locales/bootstrap-datepicker.es.js'></script>
+<script src='https://<?php echo $_SERVER['SERVER_NAME']?>/plugins/fullcalendar/fullcalendar.js'></script>
+<script src='https://<?php echo $_SERVER['SERVER_NAME']?>/plugins/fullcalendar/locale/es.js'></script>
+<script src='https://<?php echo $_SERVER['SERVER_NAME']?>/plugins/fullcalendar/locale-all.js'></script>
 <script src="./public/js/funciones.js"></script>
+<script>
 
+	$(document).ready(function() {
+		$('#calendar').fullCalendar({
+			locale: 'es',
+			weekNumbers: true
+		});
+	});
+
+</script>
 </body>
 </html>
